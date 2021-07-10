@@ -16,9 +16,24 @@ const modalPhotoCommentsReduser = (state = initialState, actions) => {
                 loading: false,
                 items: actions.payload
             }
+        case 'comment/upload/start':
+            return {
+                ...state,
+                loading: true,
+            }
+        case 'comment/upload/success':
+            return {
+                ...state,
+                loading: false,
+                items: {
+                    ...state.items,
+                    comments: [...state.items.comments, actions.payload]
+                }
+
+            }
+
         default:
             return state
     }
 }
-
 export default modalPhotoCommentsReduser

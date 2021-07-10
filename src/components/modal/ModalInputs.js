@@ -15,8 +15,8 @@ function ModalInputs(props) {
     const addComment = (e) => {
         setComment(e.target.value)
     }
-    const uploadNewComment = () => {
-        dispatch(postComment(params.id))
+    const uploadNewComment = (id, name, text) => {
+        dispatch(postComment(id, name, text, props.modal.comments))
     }
     return (
         <div className="modalInputs">
@@ -34,7 +34,7 @@ function ModalInputs(props) {
                        onChange={addComment}
                 />
             </div>
-            <button onClick={() => uploadNewComment}>
+            <button onClick={() => uploadNewComment(params.id, name, comment)}>
                 Оставить комментарий
             </button>
         </div>

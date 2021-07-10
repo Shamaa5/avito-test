@@ -4,7 +4,7 @@ import {createStore} from "redux";
 import {createLogger} from "redux-logger";
 import photosReduser from "./photos";
 import modalPhotoCommentsReduser from "./modal";
-import modalPhotoCommentsUploadReduser from "./upload";
+import modalPhotoCommentsUploadReduser from "./comments";
 
 
 
@@ -15,7 +15,7 @@ const logger = createLogger({
 const rootReduser = combineReducers({
         photos: photosReduser,
         modal: modalPhotoCommentsReduser,
-        upload: modalPhotoCommentsUploadReduser
+        // upload: modalPhotoCommentsUploadReduser
 })
 
 export const store = createStore(rootReduser, applyMiddleware(thunk, logger))
